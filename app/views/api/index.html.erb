@@ -1,11 +1,20 @@
-<h1>Api#index</h1>
-<p>Find me in app/views/api/index.html.erb</p>
+<div class="row">
+  <div class="large-2 columns">&nbsp</div>
+
+<div class="large-8 columns">
+
+<hr />
 
 <ul>
-<% @stores.each do |store| %>
- <li><%= "City: "%>
-  <%= store['city'] %>
-  <%= "Store Name: "%>
-  <%= store['name'] %></li>
-<% end %>
+  <% @books.each do |book| %>
+   <div id="book_cover"><%= image_tag(book['image']) %></div>
+    <div id="book_title"><li><%=link_to book['title'], book['details_url'] %></li></div>
+    <li>By: <%= book['authors'][0].fetch('name', "Author Unavailable") rescue nil %></li>
+    <li div id="format">(<%= book['format'].fetch('name')%>)</li>
+   <div class="availability" id="<%= book['availability'].fetch('id') %>"   <li><%= book['availability'].fetch('id').capitalize %></li></div>
+    <hr />
+  <% end %>  
 </ul>
+
+  <div class="large-2 columns">&nbsp</div> 
+</div>
