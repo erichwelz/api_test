@@ -14,5 +14,10 @@
 //= require jquery_ujs
 //= require foundation
 //= require_tree .
-
+ 
+ //  $('#sort_type')
+ // .change(function() {
+ //    alert('Option changed');
+ //  })
+ 
 $(function(){ $(document).foundation(); });
