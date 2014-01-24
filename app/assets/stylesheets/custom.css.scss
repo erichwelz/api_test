@@ -1,5 +1,10 @@
+*{
+  font-family: helvetica
+}
+
 li{
   list-style: none;
+  margin: -3px 0px;
 }
 
 #book_cover{
@@ -12,6 +17,11 @@ li{
 
 #book_title{
   font-weight: bold;
+}
+
+#sort_type{
+  float: right;
+  max-width: 200px
 }
 a:link{
   color: #3BB9FF;

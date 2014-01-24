@@ -3,7 +3,14 @@ require 'open-uri'
 class ApiController < ApplicationController
   def index
       books_json = open("http://www.bibliocommons.com/books.json").read
-      @books = JSON.parse(books_json)   
+      book_presort = JSON.parse(books_json)
+    if params[:order_by] == "Availability"
+      @books = book_presort.sort_by{ |k| k['availability'].fetch('id') }
+    elsif params[:order_by] == "Format"
+      @books = book_presort.sort_by{ |k| k['format'].fetch('name') }
+    else
+      @books = book_presort.sort_by{ |k| k['title'] }      
+    end
   end
 
 
@@ -13,3 +20,5 @@ class ApiController < ApplicationController
   def edit
   end
 end
+
+

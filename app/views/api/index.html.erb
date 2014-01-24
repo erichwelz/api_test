@@ -1,20 +1,29 @@
+<%= form_tag(params, :method => :get) do %>
+  <%= select_tag(:order_by, options_for_select(["Title", "Format", "Availability"], params[:order_by])) %>
+  <%= submit_tag "Sort" %>
+<% end %>
+
 <div class="row">
   <div class="large-2 columns">&nbsp</div>
 
 <div class="large-8 columns">
-
+  <select id="sort_type">
+<option title="Title" value="Title" selected="selected">Title</option>
+<option title="Format" value="Format">Format</option>
+<option title="Availability" value="Availability">Availability</option>
+</select>
 <hr />
 
 <ul>
   <% @books.each do |book| %>
    <div id="book_cover"><%= image_tag(book['image']) %></div>
     <div id="book_title"><li><%=link_to book['title'], book['details_url'] %></li></div>
-    <li>By: <%= book['authors'][0].fetch('name', "Author Unavailable") rescue nil %></li>
+    <li>By: <%= book['authors'][0].fetch('name', "Author Unavailable") rescue nil%></li>
     <li div id="format">(<%= book['format'].fetch('name')%>)</li>
    <div class="availability" id="<%= book['availability'].fetch('id') %>"   <li><%= book['availability'].fetch('id').capitalize %></li></div>
     <hr />
   <% end %>  
 </ul>
 
-  <div class="large-2 columns">&nbsp</div> 
+  <div class="large-2 columns"></div> 
 </div>
