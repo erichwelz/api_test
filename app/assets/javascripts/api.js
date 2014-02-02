@@ -9,7 +9,3 @@ $("#sort_type").click(function() {
   // $('select').val($(this).val())
   // alert($(this).val())
 });
-
-// $("#sort_type").click(function() {
-//   alert('responding to JS')
-// });

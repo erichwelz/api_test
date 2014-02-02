@@ -6,7 +6,7 @@
         <% if book['authors'] != nil %>
           <%= book['authors'][0].fetch('name') %>
           <% else %>
-         Author name unavailable
+         <span id="missing_author">Author name unavailable</span>
           <% end %>
       </li>
       <li div id="format">(<%= book['format'].fetch('name')%>)</li>
