@@ -25,14 +25,16 @@ li{
 }
 
 #sort_by{
-  float: right;
   color: grey;
   line-height: 36px;
+  position: absolute;
+  right: 180px;
 }
 
 #sort_type{
   float: right;
-  max-width: 150px
+  max-width: 150px;
+  border-radius: 10px
 }
 
 a:link{
