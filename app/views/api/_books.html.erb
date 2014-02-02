@@ -4,13 +4,13 @@
       <div id="book_title"><li><%=link_to book['title'], book['details_url'] %></li></div>
       <li>By: 
         <% if book['authors'] != nil %>
-          <%= book['authors'][0].fetch('name') %>
+          <%= book['authors'][0]['name'] %>
           <% else %>
          <span id="missing_author">Author name unavailable</span>
           <% end %>
       </li>
-      <li div id="format">(<%= book['format'].fetch('name')%>)</li>
-     <div class="availability" id="<%= book['availability'].fetch('id') %>"   <li><%= book['availability'].fetch('id').capitalize %></li></div>
+      <li div id="format">(<%= book['format']['name']%>)</li>
+     <div class="availability" id="<%= book['availability']['id'] %>"   <li><%= book['availability']['id'].capitalize %></li></div>
       <hr />
     <% end %>  
   </ul>

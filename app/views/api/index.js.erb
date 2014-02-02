@@ -1,3 +1,7 @@
-// $("#sort_type").click(function() {
-$('#books').html('<%=j render :partial => 'books' %>')
+// Doesn't work, javascript must be escaped
+
+// $('#books').html('<%=j render :partial => 'books' %>')
 // });  
+
+
+$("#books").html('<%= escape_javascript(render :partial => "books") %>')

@@ -1,13 +1,11 @@
-require 'open-uri'
-
 class ApiController < ApplicationController
   def index
       books_json = open("http://www.bibliocommons.com/books.json").read
       book_presort = JSON.parse(books_json)
     if params[:order_by] == "availability"
-      @books = book_presort.sort_by{ |k| k['availability'].fetch('id') }
+      @books = book_presort.sort_by{ |k| k['availability']['id'] }
     elsif params[:order_by] == "format"
-      @books = book_presort.sort_by{ |k| k['format'].fetch('name') }
+      @books = book_presort.sort_by{ |k| k['format']['name'] }
     else
       @books = book_presort.sort_by{ |k| k['title'] }      
     end
@@ -18,12 +16,6 @@ class ApiController < ApplicationController
     end
   end
 
-
-  def new
-  end
-
-  def edit
-  end
 end
 
 
